@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Trash extends Model
+{
+    // ชื่อตาราง
+    protected $table = 'trash';
+
+    // คีย์หลัก
+    protected $primaryKey = 'id';
+
+    // ปิด timestamps เพราะตารางยังไม่มี created_at/updated_at
+    // (ถ้าคุณเพิ่มคอลัมน์สองตัวนี้ใน DB แล้ว ให้ลบบรรทัดนี้ทิ้ง)
+    public $timestamps = false;
+
+    // ฟิลด์ที่อนุญาตให้บันทึกแบบ mass assignment
+    protected $fillable = [
+        'target_type',
+        'target_id',
+        'deleted_by',
+        'deleted_at',
+        'expire_at',
+    ];
+}
